@@ -1,5 +1,3 @@
-#processPickedChains.sh 
-
 #!/bin/bash
 
 set -beuEo pipefail
