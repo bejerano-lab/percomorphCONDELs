@@ -6,10 +6,10 @@ species=$1
 scriptsDir=$(dirname $0)
 setupOutDir=${scriptsDir}/../pickOrthoChains/
 orthoChainOutDir=${scriptsDir}/../processedInputs/orthoChains/
-canonicalIDs=${scriptsDir}/../pickOrthoChains/ensembl98_ASM223467v1_canonical_IDs.txt
+canonicalIDs=${scriptsDir}/../processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab
 
 # REFORMAT PICK CHAIN OUTPUT
-join <(grep ^ENSORLG ${setupOutDir}/${1}.out | cut -d" " -f1,2 | sort) ${canonicalIDs} > ${setupOutDir}/${species}".chain_ids"
+join <(grep ^ENSORLG ${setupOutDir}/${1}.out | cut -d" " -f1,2 | sort) <(cut -f5-6 ${canonicalIDs} | sed 's/\t/ /' | sort) > ${setupOutDir}/${species}".chain_ids"
 
 awk -v var=$species '{print $1 "\t" var"_chain"$2}'  ${setupOutDir}/${species}".chain_ids" > ${setupOutDir}/${species}_reformattedChainIds
 
