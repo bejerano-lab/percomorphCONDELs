@@ -21,7 +21,16 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > Download and decompress a tarball of 36 pre-generated gapTrack files from [zenodo tbd]
 
-**3. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
+**3. Populate `processedInputs/chromSizes`
+
+> Generate assembly “chromosome sizes” files from each `2bit` using `twoBitInfo`
+>
+> *OR*
+>
+> Download and decompress a tarball of 36 pre-generated chrom.sizes files from [zenodo tbd]
+
+
+**4. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
 
 > Download ... using BioMart
 >
@@ -30,9 +39,9 @@ This repository provides the code for identifying genomic deletions that are ass
 > Download and decompress a tarball of pre-generated files from [zenodo tbd]; place these files in `processedInputs/filterBEDs`
 > Download and decompress a tarball of pre-generated files from [zenodo tbd]; place these files in `pickOrthoChains`
 
-**4. Acquire whole-genome pairwise alignments to the reference assembly**
+**5. Acquire whole-genome pairwise alignments to the reference assembly**
 
-> *Skip to step 6 to use pre-generated orthologous alignment files*
+> *Skip to step 7 to use pre-generated orthologous alignment files*
 > 
 > Generate the alignments from scratch
 > - Use doBlastzChainNet.pl, the parameters provided in `blastz_chain_DEF_files`, and chainLinearGap=medium
@@ -42,7 +51,7 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > Download and decompress a tarball of pre-generated {reference}.{query}.all.chain.gz from [zenodo tbd]; place the files in `pickOrthoChains/chains`
 
-**5. Map reference gene orthologs to identify orthologous alignment chains**
+**6. Map reference gene orthologs to identify orthologous alignment chains**
 
 > For each query species, run `python2 scripts/pickChains_0.1threshold.py {query assembly name}`
 > 
@@ -50,7 +59,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > This step may require 5-10g of RAM for each query assembly, as the {reference}.{query}.all.chain.gz alignments file will be decompressed into memory. It follows the method described in *Turakhia et al. Nucleic Acids Res. 2020 Sep 18;48(16):e91. https://doi.org/10.1093/nar/gkaa550.*
 
-**6. Process orthologous chains**
+**7. Process orthologous chains**
 
 > For each query species, run `scripts/processPickedChains.sh {query assembly name}`
 > 
@@ -61,6 +70,21 @@ This repository provides the code for identifying genomic deletions that are ass
 > Download and decompress a tarball of pre-generated {reference}.{query}.ortho.chains.gz from [zenodo tbd]; place the files in `processedInputs/orthoChains`
 > Download and decompress a tarball of pre-generated orthologous gene mapping info from [zenodo tbd]; place the files in `pickOrthoChains`
 
-**7. Generate lookup files for each reference gene**
+**8. Generate lookup files for each reference gene**
 
 > For each canonical reference gene, run `scripts/generateLookupFile.sh {ENSG ID}`
+
+
+**9. Identify chain gaps**
+
+**10. Identify intact alignment (axt) blocks**
+
+**11. Identify sliding window conserved sequence elements**
+
+*Extract chain ID-labeled alignment sequences*
+
+*Compute percent sequence identity between the reference and query assemblies in sliding windows across the genome*
+
+*Identify the most conserved windows*
+
+**12. Run the screen**
