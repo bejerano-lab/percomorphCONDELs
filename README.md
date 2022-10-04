@@ -1,6 +1,6 @@
 # percomorphCONDELs
 
-This repository provides the code for identifying genomic deletions that are associated with pelvic and caudal fin reduction in independent lineages of fish. Please refer to the following manuscript for more details:
+This repository provides the code for identifying genomic deletions that are associated with pelvic and caudal fin reduction in independent lineages of fish, as described in the following manuscript:
 
 [coming soon]
 
@@ -15,9 +15,30 @@ This repository provides the code for identifying genomic deletions that are ass
 
 **2. Populate `processedInputs/gapTracks` with gapTrack files for all genome assemblies**
 
->Generate assembly “gapTrack” files from each `2bit` using `twoBitInfo -nBed` and filter to only assembly gaps of 5 Ns or longer
+> Generate assembly “gapTrack” files from each `2bit` using `twoBitInfo -nBed` and filter to only assembly gaps of 5 Ns or longer
 >
 > *OR*
 >
 > Download and decompress a tarball of 36 pre-generated gapTrack files from [zenodo tbd]
+
+**3. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
+
+> Download ... using BioMart
+>
+> *OR*
+>
+> Download and decompress a tarball of pre-generated files from  [zenodo tbd]; place these files in `processedInputs/filterBEDs`
+> Download and decompress a tarball of pre-generated files from  [zenodo tbd]; place these files in `pickOrthoChains`
+
+**4. Acquire whole-genome pairwise alignments to the reference assembly**
+
+> Generate the alignments from scratch
+> - Use doBlastzChainNet.pl, the parameters provided in `blastz_chain_DEF_files`, and chainLinearGap=medium
+> - Place the resulting {reference}.{query}.all.chain.gz files in `pickOrthoChains/chains`
+> 
+> *OR*
+>
+> Download and decompress a tarball of pre-generated {reference}.{query}.all.chain.gz from  [zenodo tbd]; place the files in `pickOrthoChains/chains`
+
+**5. Map reference gene orthologs**
 
