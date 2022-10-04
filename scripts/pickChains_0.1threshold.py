@@ -12,8 +12,9 @@ interval_len = 10000
 
 args = sys.argv[1:]
 query = args[0]
-#ROOT='/cluster/u/hchen17/treeWAS/setup/percomorphs/ensembl98_ASM223467v1/'
-ROOT= args[1]
+scriptsDir = Path( __file__ ).parent.absolute()
+
+ROOT = scriptsDir + "../pickOrthoChains/"
 filename = ROOT + 'chains/oryLat04.' + query + '.all.chain.gz'
 outfile = open(ROOT + query + '.out', 'w')
 
