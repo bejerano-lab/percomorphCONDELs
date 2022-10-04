@@ -1,0 +1,25 @@
+lookupDir=orthoChainLookupFiles
+tetraodontiformes="molMol01 takFla02 takRub01 tetNig2"
+eel=""
+syngnathids="synSco01 hipCom01 hipEre01"
+sole=""
+targetCladeReq=2
+requireMonAlb=False
+requireGasAcu=True
+
+numTetraodontiformes=3
+numSyngnathids=2
+
+outgroups="ampCit01 oreNil02 neoBri01 hapBur01 punNye01 mayZeb03 notFur02 kryMar01 ausLim01 xipMac02 xipHel01 xipCou01 poeRet02 poeFor01 funHet01 latCal01 parOli02 serQui01 serDum01 gasAcu14 punPun02 larCro01 miiMii01 dicLab01 labBer01 bolPec01"
+numReqOutgroups=17
+
+mergeDist=20
+
+tssPadding=200000
+delsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphDels
+consWindowsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphSlidingWindowCons
+intactAxtsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphIntactAxtBlocks
+minConSize=20
+minConDelSize=50
+outDir=/cluster/u/hchen17/treeWAS/convergent_condels_repo/results
+maxViolations=1

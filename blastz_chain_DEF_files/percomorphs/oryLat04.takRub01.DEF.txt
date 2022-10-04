@@ -1,0 +1,18 @@
+BLASTZ_M=50
+BLASTZ_Q=/cluster/u/hchen17/treeWAS/convergent_condels_repo/blastz_chain_DEF_files/HoxD55.q
+
+# TARGET: Medaka oryLat03
+SEQ1_DIR=/cluster/u/hchen17/percomorphs/assemblies/oryLat03_medaka_GCA_002234675.1_ASM223467v1.dir/humanReadableChrNames_oryLat04/oryLat04.2bit
+SEQ1_LEN=/cluster/u/hchen17/percomorphs/assemblies/oryLat03_medaka_GCA_002234675.1_ASM223467v1.dir/humanReadableChrNames_oryLat04/oryLat04.chrom.sizes
+SEQ1_CHUNK=20000000
+SEQ1_LAP=10000
+SEQ1_LIMIT=50
+
+# QUERY: 
+SEQ2_DIR=/cluster/u/hchen17/percomorphs/assemblies/takRub01_Takifugu_rubribes_GCA_GCA_901000725.2_fTakRub1.2.dir/takRub01.2bit
+SEQ2_LEN=/cluster/u/hchen17/percomorphs/assemblies/takRub01_Takifugu_rubribes_GCA_GCA_901000725.2_fTakRub1.2.dir/takRub01.chrom.sizes
+SEQ2_CHUNK=10000000
+SEQ2_LIMIT=50
+SEQ2_LAP=0
+BASE=/cluster/u/hchen17/percomorphs/assemblies/takRub01_Takifugu_rubribes_GCA_GCA_901000725.2_fTakRub1.2.dir/lastz_jan2022
+TMPDIR=/tmp

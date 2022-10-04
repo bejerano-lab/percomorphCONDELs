@@ -1,0 +1,23 @@
+BLASTZ_M=50
+BLASTZ_Q=/cluster/u/hchen17/percomorphs/assemblies/xipMac02_GCA_002775205.2_X_maculatus-5.0-male.dir/BLAST_Q.txt
+BLASTZ_T=2
+BLASTZ_Y=3400
+
+# TARGET: Medaka oryLat04
+SEQ1_DIR=/cluster/u/hchen17/percomorphs/assemblies/oryLat03_medaka_GCA_002234675.1_ASM223467v1.dir/humanReadableChrNames_oryLat04/oryLat04.2bit
+SEQ1_LEN=/cluster/u/hchen17/percomorphs/assemblies/oryLat03_medaka_GCA_002234675.1_ASM223467v1.dir/humanReadableChrNames_oryLat04/oryLat04.chrom.sizes
+SEQ1_CHUNK=20000000
+SEQ1_LAP=10000
+SEQ1_LIMIT=50
+
+
+# QUERY:
+SEQ2_DIR=/cluster/u/hchen17/percomorphs/assemblies/punNye01_GCA_000239375.1_PunNye1.0.dir/punNye01.2bit
+SEQ2_LEN=/cluster/u/hchen17/percomorphs/assemblies/punNye01_GCA_000239375.1_PunNye1.0.dir/punNye01.chrom.sizes
+SEQ2_CHUNK=10000000
+SEQ2_LIMIT=50
+SEQ2_LAP=0
+
+BASE=/cluster/u/hchen17/percomorphs/assemblies/punNye01_GCA_000239375.1_PunNye1.0.dir/lastz_feb2022
+TMPDIR=/tmp
+
