@@ -26,7 +26,7 @@ outpath=${outroot}/${folderPrefix}/$gene
 
 referenceGeneTSSs=${scriptsDir}/../processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab
 
-grep $gene $referenceGeneTSSs | awk '{print $1 "\t" $2 "\t" $3}' > $outpath
+grep $gene $referenceGeneTSSs | awk -F"\t" 'OFS="\t" {print $1, $2, $3}' > $outpath
 results=$(grep "$gene" ${inroot}/*reformattedChainIds)
 
 if [ -n "${results}" ]
