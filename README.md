@@ -50,6 +50,8 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > This step may require 5-10g of RAM, as the {reference}.{query}.all.chain.gz alignments file will be decompressed into memory. It follows the method described in *Turakhia et al. Nucleic Acids Res. 2020 Sep 18;48(16):e91. https://doi.org/10.1093/nar/gkaa550.*
 
-**6. Process orthologous chains **
+**6. Process orthologous chains**
+>
 
-**7. Generate lookup files for each reference gene **
+**7. Generate lookup files for each reference gene**
+>
