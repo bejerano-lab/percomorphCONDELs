@@ -1,4 +1,4 @@
-lookupDir=orthoChainLookupFiles
+lookupDir=../processedInput/orthoChainLookupFiles
 tetraodontiformes="molMol01 takFla02 takRub01 tetNig2"
 eel=""
 syngnathids="synSco01 hipCom01 hipEre01"
@@ -16,10 +16,10 @@ numReqOutgroups=17
 mergeDist=20
 
 tssPadding=200000
-delsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphDels
-consWindowsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphSlidingWindowCons
-intactAxtsDir=/cluster/u/hchen17/treeWAS/inputData_chainRunMEDIUM/percomorphIntactAxtBlocks
+delsDir=../processedInput/DELs
+consWindowsDir=../processedInput/slidingWindowCons
+intactAxtsDir=../processedInput/axtBlocks
 minConSize=20
 minConDelSize=50
-outDir=/cluster/u/hchen17/treeWAS/convergent_condels_repo/results
+outDir=../results
 maxViolations=1
