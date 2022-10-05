@@ -21,7 +21,7 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > Download and decompress a tarball of 36 pre-generated gapTrack files from [zenodo tbd]
 
-**3. Populate `processedInputs/chromSizes`
+**3. Populate `processedInputs/chromSizes`**
 
 > Generate assembly “chromosome sizes” files from each `2bit` using `twoBitInfo`
 >
@@ -32,8 +32,22 @@ This repository provides the code for identifying genomic deletions that are ass
 
 **4. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
 
-> Download ... using BioMart
+> From [ensembl biomart](https://www.ensembl.org/biomart/martview), download a gzipped tab-delimted file with the following columns of information
+> 1. Gene stable ID
+> 2. Transcript stable ID
+> 3. Chromosome/scaffold name
+> 4. Transcription start site (TSS)
+> 5. Gene name
+> 6. Exon start
+> 7. Exon end
+> 8. Gene description
 >
+> Then run `python3 scripts/prepRefGeneInfo.py {pathToBiomartTabFile.gz}`
+> 
+> From [ensembl FTP](http://ftp.ensembl.org/pub/), download `Oryzias_latipes.ASM223467v1.98.gtf.gz` 
+> 
+> Then run 
+> 
 > *OR*
 >
 > Download and decompress a tarball of pre-generated files from [zenodo tbd]; place these files in `processedInputs/filterBEDs`
