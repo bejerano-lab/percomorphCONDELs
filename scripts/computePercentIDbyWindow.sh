@@ -3,7 +3,7 @@
 set -beEu -o pipefail
 
 scriptsDir=$(realpath $(dirname $0))
-echo $scriptsDir
+#echo $scriptsDir
 axtDir=${scriptsDir}/../processedInputs/labeledAxts
 out=${scriptsDir}/../processedInputs/windowPctIDs
 threshold=0.0
