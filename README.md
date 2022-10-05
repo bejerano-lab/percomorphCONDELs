@@ -7,7 +7,7 @@ This repository provides the code for identifying genomic deletions that are ass
 
 ## System requirements
 - Install UCSC Genome Browser utils from http://hgdownload.soe.ucsc.edu/admin/exe/ to be available in your $PATH
-- Configure available python packages according to the file environment.yaml
+- Configure available python packages according to the file `environment.yaml`
 
 ## Prep and run the screen
 
@@ -95,24 +95,36 @@ This repository provides the code for identifying genomic deletions that are ass
 **9. Identify chain gaps**
 
 > For each set of chains in `processedInputs/orthoChains/`, run `scripts/getChainDelsMinusPaddedAssemblyGaps.sh oryLat04.{query}.ortho.chains.gz`
+> 
+> *OR*
+> 
+> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/DELs`
 
 **10. Identify intact alignment (axt) blocks**
 
 > For each set of chains in `processedInputs/orthoChains/`, run `scripts/findIntactAxts.sh  oryLat04.{query}.ortho.chains.gz`
+> 
+> *OR*
+> 
+> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/axtBlocks`
 
 **11. Identify sliding window conserved sequence elements**
 
-> *Extract chain ID-labeled alignment sequences*
+> *Extract chain ID-labeled alignment sequences:*
 >
 > For each `{query}.chain_ids` file in `pickOrthoChains/`, run `scripts/getChainLabeledSeqAxt.sh pickOrthoChains/{query}.chain_ids`
 >
-> *Compute percent sequence identity between the reference and query assemblies in sliding windows across the genome*
+> *Compute percent sequence identity between the reference and query assemblies in sliding windows across the genome:*
 > 
 > If all previous steps have been performed, simply run `scripts/computePercentIDbyWindow.sh`
 > 
-> *Identify the most conserved windows*
+> *Identify the most conserved windows:*
 > 
 > For each collated windows file `processedInputs/windowPctIDs/{query}/{query}_*bpWindowsSortedByPctID`, run `scripts/getWindowsCovering5pctOfREFandCollapseByChain.sh processedInputs/windowPctIDs/{query}/{query}_{size}bpWindowsSortedByPctID`
+> 
+> *OR*
+> 
+> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/slidingWindowCons`
 
 **12. Run the screen**
 
