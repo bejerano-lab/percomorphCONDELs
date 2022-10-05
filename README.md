@@ -104,6 +104,8 @@ This repository provides the code for identifying genomic deletions that are ass
 
 > For each set of chains in `processedInputs/orthoChains/`, run `scripts/findIntactAxts.sh  oryLat04.{query}.ortho.chains.gz`
 > 
+> Then run `scripts/getAxtBlocksIntactIn2TetraSyngnath.sh screenDefinitionParameters`
+> 
 > *OR*
 > 
 > Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/axtBlocks`
