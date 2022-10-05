@@ -55,7 +55,7 @@ scriptsDir=$(realpath $(dirname $0))
 
 FILTER_BEDS=$(readlink -f ${scriptsDir}/../processedInputs/filterBEDs)
 
-nonOrthoTargetAxtsBed=$(readlink -f ${scriptsDir}/../processedInputs/axtBlocks/twoOrMoreSynAndTetIntact.bed)
+nonOrthoTargetAxtsBed=$(readlink -f ${scriptsDir}/../processedInputs/axtBlocks/twoOrMoreTargetsIntact.bed)
 
 oryLat04ChromSizes=$(readlink -f i${scriptsDir}/../processedInputs/chromSizes/oryLat04.chrom.sizes)
 oryLat04ChromIDregEx="chr[1-9]+"
