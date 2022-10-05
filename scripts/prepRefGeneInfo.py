@@ -80,7 +80,8 @@ with open(pickOrthoChainsDir+'genes_chr.p', 'wb') as genesChr:
 
 with open(script_dir+"/../processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab", "w") as canonicalTSSinfo:
     for transcript_id in sorted(canonical_genes_transcript_ids.values()):
-        transcript_id = canonical_genes_transcript_ids[gene_id]
+        print(transcript_id)
+        #transcript_id = canonical_genes_transcript_ids[gene_id]
         print("\t".join(all_TSSs[transcript_id]), file=canonicalTSSinfo)
 
 #print(count)
