@@ -17,5 +17,9 @@ zcat ${ensemblGTFgz} | awk '$3 == "exon"' > /tmp/exonsOnly.gtf
 gt gtf_to_gff3 -force -o /tmp/exonsOnly.gff3 /tmp/exonsOnly.gtf
 gt gff3 -force yes  -addintrons yes -sort yes /tmp/exonsOnly.gff3 | sed 's/ /_/g' > /tmp/exonsAndIntrons.gff3 
 
+python3 ${scriptsDir}/parseExonIntronGff3.py
 
+rm /tmp/exons*
+
+python3 ${scriptsDir}/parseReferenceGTF.py ${ensemblGTFgz}
 
