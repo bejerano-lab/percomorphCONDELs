@@ -56,3 +56,7 @@ else
 	cat ${out}/par/joblist | parallel
 fi
 
+bash ${scriptsDir}/catAndSortWindowsByPctID.sh
+
+
+
