@@ -5,6 +5,12 @@ This repository provides the code for identifying genomic deletions that are ass
 [coming soon]
 
 
+## System requirements
+- Install UCSC Genome Browser utils from http://hgdownload.soe.ucsc.edu/admin/exe/ to be available in your $PATH
+- Configure available python packages according to the file environment.yaml
+
+## Prep and run the screen
+
 **1. Populate `processedInputs/2bits` with `2bit` files for all genome assemblies**
 
 > Download assembly fasta files from the sources listed in Table __ and convert them to `2bit` format using `faToTwoBit`
@@ -86,17 +92,30 @@ This repository provides the code for identifying genomic deletions that are ass
 
 > For each canonical reference gene, run `scripts/generateLookupFile.sh {ENSG ID}`
 
-
 **9. Identify chain gaps**
+
+> For each set of chains in `processedInputs/orthoChains/`, run `scripts/getChainDelsMinusPaddedAssemblyGaps.sh oryLat04.{query}.ortho.chains.gz`
 
 **10. Identify intact alignment (axt) blocks**
 
+> For each set of chains in `processedInputs/orthoChains/`, run `scripts/findIntactAxts.sh  oryLat04.{query}.ortho.chains.gz`
+
 **11. Identify sliding window conserved sequence elements**
 
-*Extract chain ID-labeled alignment sequences*
-
-*Compute percent sequence identity between the reference and query assemblies in sliding windows across the genome*
-
-*Identify the most conserved windows*
+> *Extract chain ID-labeled alignment sequences*
+>
+> For each `{query}.chain_ids` file in `pickOrthoChains/`, run `scripts/getChainLabeledSeqAxt.sh pickOrthoChains/{query}.chain_ids`
+>
+> *Compute percent sequence identity between the reference and query assemblies in sliding windows across the genome*
+> 
+> If all previous steps have been performed, simply run `scripts/computePercentIDbyWindow.sh`
+> 
+> *Identify the most conserved windows*
+> 
+> For each collated windows file `processedInputs/windowPctIDs/{query}/{query}_*bpWindowsSortedByPctID`, run `scripts/getWindowsCovering5pctOfREFandCollapseByChain.sh processedInputs/windowPctIDs/{query}/{query}_{size}bpWindowsSortedByPctID`
 
 **12. Run the screen**
+
+> Run `scripts/screenForPercomorphCONDELs.sh screenDefinitionParameters` 
+> 
+> Screen output will be saved in `results`
