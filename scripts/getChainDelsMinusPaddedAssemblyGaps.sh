@@ -4,7 +4,7 @@ set -beEu -o pipefail
 
 function usage {
     cat << EOF
-Usage: script.sh oryLat04.${query}.ortho.chains.gz
+Usage: script.sh oryLat04.{query}.ortho.chains.gz
 EOF
     exit 1;
 }
@@ -12,6 +12,9 @@ EOF
 if [ $# -ne 1 ]; then
     usage;
 fi
+
+
+
 
 scriptsDir=$(realpath $(dirname $0))
 
