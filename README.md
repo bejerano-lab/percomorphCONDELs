@@ -13,7 +13,7 @@ This repository provides the code for identifying genomic deletions that are ass
 
 **1. Populate `processedInputs/2bits` with `2bit` files for all genome assemblies**
 
-> Download assembly fasta files from the sources listed in Table __ and convert them to `2bit` format using `faToTwoBit`
+> Download assembly fasta files from the sources listed in Table __, perform repeat masking (if needed), and convert the fasta files to `2bit` format using `faToTwoBit`
 >
 > *OR*
 >
