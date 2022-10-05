@@ -41,12 +41,10 @@ This repository provides the code for identifying genomic deletions that are ass
 > 6. Exon start
 > 7. Exon end
 > 8. Gene description
->
-> Then run `python3 scripts/prepRefGeneInfo.py {pathToBiomartTabFile.gz}`
 > 
 > From [ensembl FTP](http://ftp.ensembl.org/pub/), download `Oryzias_latipes.ASM223467v1.98.gtf.gz` 
 > 
-> Then run 
+> Then run `scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz`
 > 
 > *OR*
 >
