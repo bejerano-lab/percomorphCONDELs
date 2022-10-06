@@ -57,7 +57,7 @@ done
 
 sort -k1,1 ${tmpDir}/simplyCombinedAxtBlocks.bed > ${tmpDir}/sortedAxtBlocks.bed
 
-genomeCoverageBed -bg -i ${tmpDir}/sortedAxtBlocks.bed -g $oryLat04ChromSizes  | awk '$4 >= 2' > ${scriptsDir}/../processedInputs/axtBlocks/twoOrMoreSynAndTetIntact.bed
+genomeCoverageBed -bg -i ${tmpDir}/sortedAxtBlocks.bed -g $oryLat04ChromSizes  | awk '$4 >= 2' | mergeBed -d 20 -i stdin > ${scriptsDir}/../processedInputs/axtBlocks/twoOrMoreSynAndTetIntact.bed
 
 rm -r $tmpDir
 
