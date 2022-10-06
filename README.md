@@ -38,7 +38,7 @@ This repository provides the code for identifying genomic deletions that are ass
 
 **4. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
 
-> From [ensembl biomart](https://www.ensembl.org/biomart/martview), download a gzipped tab-delimted file with the following columns of information
+> From [ensembl biomart](https://www.ensembl.org/biomart/martview), download a gzipped, tab-delimited file with the following columns of information
 > 1. Gene stable ID
 > 2. Transcript stable ID
 > 3. Chromosome/scaffold name
