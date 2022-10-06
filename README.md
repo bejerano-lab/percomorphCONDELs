@@ -119,6 +119,8 @@ cat joblist | parallel
 > *OR*
 > 
 > Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/axtBlocks`
+> 
+> Then run `scripts/getAxtBlocksIntactIn2TetraSyngnath.sh screenDefinitionParameters`
 
 **11. Identify sliding window conserved sequence elements**
 
