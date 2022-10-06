@@ -124,7 +124,7 @@ cat joblist | parallel
 
 **11. Identify sliding window conserved sequence elements**
 
-> *Extract chain ID-labeled alignment sequences:*
+> *Extract chain ID-labeled fasta alignments:*
 >
 > For each `{query}.chain_ids` file in `pickOrthoChains/`, run `scripts/getChainLabeledSeqAxt.sh pickOrthoChains/{query}.chain_ids`
 >
