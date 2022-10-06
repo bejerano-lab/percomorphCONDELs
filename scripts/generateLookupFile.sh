@@ -18,7 +18,7 @@ folderPrefix=$(($num/1000))
 #echo $num $folderPrefix
 
 outroot=${scriptsDir}/../processedInputs/orthoChainLookupFiles
-inroot=${scriptsDir}/../pickOrthoChains/
+inroot=${scriptsDir}/../pickOrthoChains
 
 mkdir -p ${outroot}/${folderPrefix}
 
