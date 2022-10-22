@@ -50,7 +50,10 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > From [ensembl FTP](http://ftp.ensembl.org/pub/), download `Oryzias_latipes.ASM223467v1.98.gtf.gz` 
 > 
-> Then run `scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz`
+> Then run 
+> ```
+> scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz`
+> ```
 > 
 > *OR*
 >
@@ -93,15 +96,15 @@ This repository provides the code for identifying genomic deletions that are ass
 > For each canonical reference gene, run `scripts/generateLookupFile.sh {ENSG ID}`
 > 
 > For example,
-
-```
-for gene in $(cut -f5 processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab); do
-  echo scripts/generateLookupFile.sh ${gene} >> joblist
-done
-
-cat joblist | parallel
-```
-
+> 
+> ```
+> for gene in $(cut -f5 processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab); do
+>   echo scripts/generateLookupFile.sh ${gene} >> joblist
+> done
+> 
+> cat joblist | parallel
+> ```
+> 
 **9. Identify chain gaps**
 
 > For each set of chains in `processedInputs/orthoChains/`, run `scripts/getChainDelsMinusPaddedAssemblyGaps.sh oryLat04.{query}.ortho.chains.gz`
