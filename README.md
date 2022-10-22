@@ -48,11 +48,11 @@ This repository provides the code for identifying genomic deletions that are ass
 > 7. Exon end
 > 8. Gene description
 > 
-> From [ensembl FTP](http://ftp.ensembl.org/pub/), download `Oryzias_latipes.ASM223467v1.98.gtf.gz` 
+> From [ensembl FTP](http://ftp.ensembl.org/pub/), download `Oryzias_latipes.ASM223467v1.98.chr.gtf.gz` 
 > 
 > Then run 
 > ```
-> scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz
+> scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.chr.gtf.gz
 > ```
 > 
 > *OR*
