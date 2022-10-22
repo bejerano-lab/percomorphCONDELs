@@ -52,7 +52,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > Then run 
 > ```
-> scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz`
+> scripts/prepRefGenesWrapper.sh {pathToBiomartTabFile.gz} Oryzias_latipes.ASM223467v1.98.gtf.gz
 > ```
 > 
 > *OR*
