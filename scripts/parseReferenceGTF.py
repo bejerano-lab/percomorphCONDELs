@@ -7,7 +7,7 @@ outdir = script_dir + "/../processedInputs/filterBEDs/"
 
 outstreams = {}
 
-features = {"exon": "oryLat04_ensembl98_codingExons.bed", 
+features = {"CDS": "oryLat04_ensembl98_codingExons.bed", 
             "nonCodingExon": "oryLat04_ensembl98_nonCodingExons.bed", 
             "five_prime_utr": "oryLat04_ensembl98_5UTR.bed", 
             "three_prime_utr": "oryLat04_ensembl98_3UTR.bed"}
@@ -24,21 +24,26 @@ with gzip.open(sys.argv[1], "rt") as gtf:
             continue
 
         words = line.strip().split("\t")
-        chrom = words[0]
+        chrom = "chr"+words[0]
         start = int(words[3])-1 # convert to 0-based
         end = words[4]
         geneID = words[8].split("\"")[1] + "_" + words[8].split("\"")[5]
         featureType = words[2]
 
+        printMe = False
+
 
         if "utr" in featureType:
             outfile = outstreams[featureType]
-        elif featureType == "exon":
-            if "protein_coding" in line:
-                outfile = outstreams[featureType]
-            else:
-                outfile = outstreams["nonCodingExon"]
-        if featureType in features:
+            printMe = True
+        elif featureType == "CDS":
+            outfile = outstreams[featureType]
+            printMe = True
+        elif (featureType == "exon") and ("protein_coding" not in line):
+            outfile = outstreams["nonCodingExon"]
+            printMe = True
+
+        if printMe:
             print("\t".join([chrom, str(start), end, geneID]), file=outfile)
 
 
