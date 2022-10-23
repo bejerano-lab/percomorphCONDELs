@@ -16,7 +16,7 @@ outAnnotationPath = "/".join([resultsDir,annotDirName,folderNum,outAnnotationNam
 
 script_dir = Path( __file__ ).parent.absolute()
 
-filterBEDdirPath = str(script_dir)+"/../processedInputs/filterBEDs/"
+filterBEDdirPath = str(script_dir)+"/../processedInputs/filterBEDs"
 
 defFile = resultsDir+"/DEF"
 

@@ -9,6 +9,10 @@ ensemblGTFgz=$(readlink -f $2)
 
 python3 ${scriptsDir}/prepRefGeneInfo.py ${ensemblBiomartFile}
 
+sort -k1,1 -k2,2n scriptsDir+"/../processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab" > /tmp/tempSortFile
+mv /tmp/tempSortFile scriptsDir+"/../processedInputs/filterBEDs/ASM223467v1_ensembl98_canonicalTSS_withInfo.tab"
+
+
 ## identify introns ##
 
 # first make a gff3 file of exons from ensembl's gtf
