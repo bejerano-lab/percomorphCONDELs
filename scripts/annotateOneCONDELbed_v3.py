@@ -28,7 +28,7 @@ def grepDEF(keyword):
 POSSIBLE_TARGETS = sorted(["molMol01", "takFla02", "takRub01", "tetNig2", "synSco01", "hipCom01", "hipEre01", "cynSem", "monAlb01"])
 POSSIBLE_OUTGROUPS = sorted(["ampCit01", "oreNil02", "neoBri01", "hapBur01", "punNye01", "mayZeb03", "notFur02", "kryMar01", "ausLim01", 
                     "xipMac02", "xipHel01", "xipCou01", "poeRet02", "poeFor01", "funHet01", "latCal01", "parOli02", "serQui01", 
-                    "serDum01", "priCar1", "gasAcu14", "punPun02", "larCro01", "miiMii01", "dicLab01", "labBer01", "bolPec01"])
+                    "serDum01", "gasAcu14", "punPun02", "larCro01", "miiMii01", "dicLab01", "labBer01", "bolPec01"])
 TARGET_CLADES = sorted(["tetraodontiformes", "syngnathids", "sole", "eel"])
 TARGET_CLADE_ASSIGNMENTS = {"molMol01": "tetraodontiformes", "takFla02": "tetraodontiformes", "takRub01": "tetraodontiformes", 
                             "tetNig2": "tetraodontiformes", "synSco01": "syngnathids", "hipCom01": "syngnathids",
