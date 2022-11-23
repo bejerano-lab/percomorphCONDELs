@@ -139,166 +139,169 @@ with open(outAnnotationPath, "w") as resultFile:
     firstUsTSSinfo = "\t".join(currCONDELbed.closest(canonicalTssInfo, t="first", D="ref", fu=True)[0][7:])
     firstDsTSSinfo = "\t".join(currCONDELbed.closest(canonicalTssInfo, t="first", D="ref", fd=True)[0][7:])
 
-    # for each gene used to map a given CONDEL
-    for gene in list(geneTags):
+#     # for each gene used to map a given CONDEL
+#     for gene in list(geneTags):
 
-        # run through each mapped species at this region to note violators
-        # use this dict to note violators
-        # set all to violator initially, then flip to "ok" as appropriate
-        targetStatus = {}
-        targetCladeStatus = {}
-        outgroupStatus = {}
-        for species in POSSIBLE_TARGETS:
-            targetStatus[species] = "unmapped"
-        for species in POSSIBLE_OUTGROUPS:
-            outgroupStatus[species] = "unmapped"
-        for clade in TARGET_CLADES:
-            targetCladeStatus[clade] = "unmapped"
+#         # run through each mapped species at this region to note violators
+#         # use this dict to note violators
+#         # set all to violator initially, then flip to "ok" as appropriate
+#         targetStatus = {}
+#         targetCladeStatus = {}
+#         outgroupStatus = {}
+#         for species in POSSIBLE_TARGETS:
+#             targetStatus[species] = "unmapped"
+#         for species in POSSIBLE_OUTGROUPS:
+#             outgroupStatus[species] = "unmapped"
+#         for clade in TARGET_CLADES:
+#             targetCladeStatus[clade] = "unmapped"
 
-        numMappedTargets = 0
-        numMappedOutgroups = 0
+#         numMappedTargets = 0
+#         numMappedOutgroups = 0
 
-        folder = str(int(int(re.sub(GENE_REGEX,'', gene))/1000))
-        lookupFilePath = "/".join([lookupDirPath, folder, gene])
+#         folder = str(int(int(re.sub(GENE_REGEX,'', gene))/1000))
+#         lookupFilePath = "/".join([lookupDirPath, folder, gene])
         
-        # get chain mappings for this gene
-        with open(lookupFilePath, "r") as file:
-            for line in file:
-                if "\t" in line: # skip the gene TSS line: "chrX\t[start]\t[end]"
-                    continue
-                line = line.strip()
-                species, chain = line.split("_") # e.g. larCro01_chain2
-                #print(species, chain)
+#         # get chain mappings for this gene
+#         with open(lookupFilePath, "r") as file:
+#             for line in file:
+#                 if "\t" in line: # skip the gene TSS line: "chrX\t[start]\t[end]"
+#                     continue
+#                 line = line.strip()
+#                 species, chain = line.split("_") # e.g. larCro01_chain2
+#                 #print(species, chain)
 
-                chainFilePath = ORTHO_CHAIN_DIR + "/" + ".".join(["oryLat04", species, "ortho.chains.gz"])
-                # print(chainFilePath)
-                chainID = chain[5:] # get string representation of chain ID -- i.e. '98' from 'chain98'
+#                 chainFilePath = ORTHO_CHAIN_DIR + "/" + ".".join(["oryLat04", species, "ortho.chains.gz"])
+#                 # print(chainFilePath)
+#                 chainID = chain[5:] # get string representation of chain ID -- i.e. '98' from 'chain98'
 
-                chainCoverageInterval = getChainCoverageBed(chainID, chainFilePath)
+#                 chainCoverageInterval = getChainCoverageBed(chainID, chainFilePath)
 
-                chainBedName = "_".join([species,chain,".bed"]) # e.g. larCro01_chain2_.bed
+#                 chainBedName = "_".join([species,chain,".bed"]) # e.g. larCro01_chain2_.bed
 
-                currChainDelsPath = "/".join([delDirPath, species, chainBedName])
+#                 currChainDelsPath = "/".join([delDirPath, species, chainBedName])
 
-                if species in POSSIBLE_TARGETS:
-                    numMappedTargets+=1
+#                 if species in POSSIBLE_TARGETS:
+#                     numMappedTargets+=1
 
-                    if len(currCONDELbed.intersect(chainCoverageInterval)) == 0:
-                        targetStatus[species] = "inconclusive - chain too short"
-                        if targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] == "unmapped":
-                            targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "inconclusive - chain too short"
-                        # print("here")
-                        continue
-
-
-                    if os.path.exists(currChainDelsPath):
-                        delBed = BedTool(currChainDelsPath).merge(d=mergeDist)
-                        ixDels = delBed.intersect(currCONDELbed, wa=True)
-                        if len(ixDels) > 0:
-                            for i in ixDels:
-                                if i.length >= minCONDELsize:
-                                    targetStatus[species] = "ok"
-                                    targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "ok"
-                                else:
-                                    targetStatus[species] = "small del"
-                        else:
-                            targetStatus[species] = "violator"
-                            # as long as one species in the target clade is ok, call the whole clade ok
-                            if targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] == "unmapped":
-                                targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "violator"
-                elif species in POSSIBLE_OUTGROUPS:
-                    numMappedOutgroups+=1
-
-                    if len(currCONDELbed.intersect(chainCoverageInterval)) == 0:
-                        outgroupStatus[species] = "inconclusive - chain too short"
-                        # print("here")
-                        continue
+#                     if len(currCONDELbed.intersect(chainCoverageInterval)) == 0:
+#                         targetStatus[species] = "inconclusive - chain too short"
+#                         if targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] == "unmapped":
+#                             targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "inconclusive - chain too short"
+#                         # print("here")
+#                         continue
 
 
+#                     if os.path.exists(currChainDelsPath):
+#                         delBed = BedTool(currChainDelsPath).merge(d=mergeDist)
+#                         ixDels = delBed.intersect(currCONDELbed, wa=True)
+#                         if len(ixDels) > 0:
+#                             for i in ixDels:
+#                                 if i.length >= minCONDELsize:
+#                                     targetStatus[species] = "ok"
+#                                     targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "ok"
+#                                 else:
+#                                     targetStatus[species] = "small del"
+#                         else:
+#                             targetStatus[species] = "violator"
+#                             # as long as one species in the target clade is ok, call the whole clade ok
+#                             if targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] == "unmapped":
+#                                 targetCladeStatus[TARGET_CLADE_ASSIGNMENTS[species]] = "violator"
+#                 elif species in POSSIBLE_OUTGROUPS:
+#                     numMappedOutgroups+=1
 
-                    exitEarly = False
-                    for x in range(4):
-                        # each CONDEL could've been mapped using any of 4 sliding window regimens
-                        # if the CONDEL intersects any CONs element (regardless of which originating 
-                        # window size regime), mark this species as a non-violator/valid
-                        wSize = windowSizes[x]
-                        consBedPath = "/".join([consWindowsDirPath, species, wSize,chainBedName])
-                        if os.path.exists(consBedPath):
-                            consBed = BedTool(consBedPath).merge(d=mergeDist)
-                            ixConIntervals = consBed.intersect(currCONDELbed, wa=True)
-                            #print(ixConIntervals)
-                            if len(ixConIntervals) > 0:
-                                for i in ixConIntervals:
-                                    #print(i, i.length)
-                                    if i.length >= minConSize:
-                                        if windowsUsed[x] == "yes":
-                                            outgroupStatus[species] = "conserved"
-                                            exitEarly = True
-                                            break # as long as one regime is officially ok, move on
-                                        else:
-                                            outgroupStatus[species] = "conserved but not via officially used window regime"
-                                    else:
-                                        if outgroupStatus[species] == "unmapped":
-                                            outgroupStatus[species] = "cons interval smaller than minConSize"
-                        if exitEarly:
-                            break
-
-                    if exitEarly:
-                        continue
-
-                    if outgroupStatus[species][0:4] == "cons":
-                        continue
-
-                    currAxtBedPath = "/".join([intactAxtsDirPath, species, chainBedName])
-                    if os.path.exists(currAxtBedPath):
-                        axtBed = BedTool(currAxtBedPath).merge(d=mergeDist)
-                        ixAxts = axtBed.intersect(currCONDELbed) # just get intersecting portion axt interval (not entire axt block)
-                        if len(ixAxts) > 0:
-                            for i in ixAxts:
-                                if i.length >= minCONDELsize:
-                                    if "con" not in outgroupStatus[species]:
-                                        outgroupStatus[species] = "intact axt exists but not highly conserved"
-                                    exitEarly = True
-                                    break
-                                else:
-                                    outgroupStatus[species] = "violator"
-
-                    if exitEarly:
-                        continue
-
-                    if os.path.exists(currChainDelsPath):
-                        delBed = BedTool(currChainDelsPath).merge(d=mergeDist)
-                        candidateRemainingAfterIxDels = currCONDELbed.intersect(delBed, v=True)
-                        if len(candidateRemainingAfterIxDels) > 0:
-                            for i in candidateRemainingAfterIxDels:
-                                if i.length < minCONDELsize:
-                                    outgroupStatus[species] = "violator"
-                                else:
-                                    outgroupStatus[species] = "minimally conserved"
-                                    break
-                    if outgroupStatus[species] == "unmapped":
-                        outgroupStatus[species] = "violator"
-
-                else:
-                    print("invalid species encountered")
-                    print("invalid species encountered", file=resultFile)
-                    exit(1)
-
-        numTargetViolators = len([i for i in targetStatus.values() if i == "violator"])
-        numTargetOk = len([i for i in targetStatus.values() if i == "ok"])
-
-        numOutgroupViolators =  len([i for i in outgroupStatus.values() if i == "violator"])
-        numOutgroupOk = len([i for i in outgroupStatus.values() if i[0:9] == "conserved"])
+#                     if len(currCONDELbed.intersect(chainCoverageInterval)) == 0:
+#                         outgroupStatus[species] = "inconclusive - chain too short"
+#                         # print("here")
+#                         continue
 
 
-        numTargetCladeViolators = len([i for i in targetCladeStatus.values() if i == "violator"])
-        numMappedSpecies = numMappedOutgroups+numMappedTargets
 
-        targetStatusList = "\t".join([targetStatus[x] for x in sorted(targetStatus.keys())])
-        ogStatusList = "\t".join([outgroupStatus[x] for x in sorted(outgroupStatus.keys())])
-        cladeStatusList = "\t".join([targetCladeStatus[x] for x in sorted(targetCladeStatus.keys())])
+#                     exitEarly = False
+#                     for x in range(4):
+#                         # each CONDEL could've been mapped using any of 4 sliding window regimens
+#                         # if the CONDEL intersects any CONs element (regardless of which originating 
+#                         # window size regime), mark this species as a non-violator/valid
+#                         wSize = windowSizes[x]
+#                         consBedPath = "/".join([consWindowsDirPath, species, wSize,chainBedName])
+#                         if os.path.exists(consBedPath):
+#                             consBed = BedTool(consBedPath).merge(d=mergeDist)
+#                             ixConIntervals = consBed.intersect(currCONDELbed, wa=True)
+#                             #print(ixConIntervals)
+#                             if len(ixConIntervals) > 0:
+#                                 for i in ixConIntervals:
+#                                     #print(i, i.length)
+#                                     if i.length >= minConSize:
+#                                         if windowsUsed[x] == "yes":
+#                                             outgroupStatus[species] = "conserved"
+#                                             exitEarly = True
+#                                             break # as long as one regime is officially ok, move on
+#                                         else:
+#                                             outgroupStatus[species] = "conserved but not via officially used window regime"
+#                                     else:
+#                                         if outgroupStatus[species] == "unmapped":
+#                                             outgroupStatus[species] = "cons interval smaller than minConSize"
+#                         if exitEarly:
+#                             break
+
+#                     if exitEarly:
+#                         continue
+
+#                     if outgroupStatus[species][0:4] == "cons":
+#                         continue
+
+#                     currAxtBedPath = "/".join([intactAxtsDirPath, species, chainBedName])
+#                     if os.path.exists(currAxtBedPath):
+#                         axtBed = BedTool(currAxtBedPath).merge(d=mergeDist)
+#                         ixAxts = axtBed.intersect(currCONDELbed) # just get intersecting portion axt interval (not entire axt block)
+#                         if len(ixAxts) > 0:
+#                             for i in ixAxts:
+#                                 if i.length >= minCONDELsize:
+#                                     if "con" not in outgroupStatus[species]:
+#                                         outgroupStatus[species] = "intact axt exists but not highly conserved"
+#                                     exitEarly = True
+#                                     break
+#                                 else:
+#                                     outgroupStatus[species] = "violator"
+
+#                     if exitEarly:
+#                         continue
+
+#                     if os.path.exists(currChainDelsPath):
+#                         delBed = BedTool(currChainDelsPath).merge(d=mergeDist)
+#                         candidateRemainingAfterIxDels = currCONDELbed.intersect(delBed, v=True)
+#                         if len(candidateRemainingAfterIxDels) > 0:
+#                             for i in candidateRemainingAfterIxDels:
+#                                 if i.length < minCONDELsize:
+#                                     outgroupStatus[species] = "violator"
+#                                 else:
+#                                     outgroupStatus[species] = "minimally conserved"
+#                                     break
+#                     if outgroupStatus[species] == "unmapped":
+#                         outgroupStatus[species] = "violator"
+
+#                 else:
+#                     print("invalid species encountered")
+#                     print("invalid species encountered", file=resultFile)
+#                     exit(1)
+
+#         numTargetViolators = len([i for i in targetStatus.values() if i == "violator"])
+#         numTargetOk = len([i for i in targetStatus.values() if i == "ok"])
+
+#         numOutgroupViolators =  len([i for i in outgroupStatus.values() if i == "violator"])
+#         numOutgroupOk = len([i for i in outgroupStatus.values() if i[0:9] == "conserved"])
+
+
+#         numTargetCladeViolators = len([i for i in targetCladeStatus.values() if i == "violator"])
+#         numMappedSpecies = numMappedOutgroups+numMappedTargets
+
+#         targetStatusList = "\t".join([targetStatus[x] for x in sorted(targetStatus.keys())])
+#         ogStatusList = "\t".join([outgroupStatus[x] for x in sorted(outgroupStatus.keys())])
+#         cladeStatusList = "\t".join([targetCladeStatus[x] for x in sorted(targetCladeStatus.keys())])
+
+#         print(str(currCONDELbed).strip("\n"), condelID, gene, ",".join(windowsUsed), 
+#             firstUsTSSinfo, firstDsTSSinfo, pDel, "\t".join(ixElements), numMappedSpecies, numTargetViolators, numTargetCladeViolators,
+#             numTargetOk, numMappedTargets, numOutgroupViolators, numOutgroupOk, numMappedOutgroups, targetStatusList, ogStatusList, 
+#             cladeStatusList, sep="\t", file=resultFile)
 
         print(str(currCONDELbed).strip("\n"), condelID, gene, ",".join(windowsUsed), 
-            firstUsTSSinfo, firstDsTSSinfo, pDel, "\t".join(ixElements), numMappedSpecies, numTargetViolators, numTargetCladeViolators,
-            numTargetOk, numMappedTargets, numOutgroupViolators, numOutgroupOk, numMappedOutgroups, targetStatusList, ogStatusList, 
-            cladeStatusList, sep="\t", file=resultFile)
+            firstUsTSSinfo, firstDsTSSinfo, pDel, "\t".join(ixElements), sep="\t", file=resultFile)
