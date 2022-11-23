@@ -139,8 +139,8 @@ with open(outAnnotationPath, "w") as resultFile:
     firstUsTSSinfo = "\t".join(currCONDELbed.closest(canonicalTssInfo, t="first", D="ref", fu=True)[0][7:])
     firstDsTSSinfo = "\t".join(currCONDELbed.closest(canonicalTssInfo, t="first", D="ref", fd=True)[0][7:])
 
-#     # for each gene used to map a given CONDEL
-#     for gene in list(geneTags):
+    # for each gene used to map a given CONDEL
+    for gene in list(geneTags):
 
 #         # run through each mapped species at this region to note violators
 #         # use this dict to note violators
