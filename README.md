@@ -7,7 +7,11 @@ This repository provides the code for identifying genomic deletions that are ass
 
 ## System requirements
 - Install UCSC Genome Browser utils from http://hgdownload.soe.ucsc.edu/admin/exe/ to be available in your $PATH
-- Configure available python packages according to the file `environment.yaml`
+- Create a Conda environment with necessary requirements according to `environment.yaml`
+
+ ```Python
+    conda env create --file environment.yaml
+ ```
 
 ## Prep and run the screen
 
