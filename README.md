@@ -17,7 +17,7 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > *OR*
 >
-> Download and decompress a tarball of 36 pre-generated `2bit` files from [zenodo tbd]
+> Download and decompress a tarball of 36 pre-generated `2bit` files from https://doi.org/10.5281/zenodo.7140839
 
 **2. Populate `processedInputs/gapTracks` with gapTrack files for all genome assemblies**
 
@@ -25,7 +25,7 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > *OR*
 >
-> Download and decompress a tarball of 36 pre-generated gapTrack files from [zenodo tbd]
+> Download and decompress a tarball of 36 pre-generated gapTrack files from https://doi.org/10.5281/zenodo.7140839
 
 **3. Populate `processedInputs/chromSizes`**
 
@@ -33,7 +33,7 @@ This repository provides the code for identifying genomic deletions that are ass
 >
 > *OR*
 >
-> Download and decompress a tarball of 36 pre-generated chrom.sizes files from [zenodo tbd]
+> Download and decompress a tarball of 36 pre-generated chrom.sizes files from https://doi.org/10.5281/zenodo.7140839
 
 
 **4. Populate `processedInputs/filterBEDs` and `pickOrthoChains` with files based on ensembl98 gene annotations for ASM223467v1**
@@ -57,8 +57,8 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR*
 >
-> Download and decompress a tarball of pre-generated files from [zenodo tbd]; place these files in `processedInputs/filterBEDs`
-> Download and decompress a tarball of pre-generated files from [zenodo tbd]; place these files in `pickOrthoChains`
+> Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839; place these files in `processedInputs/filterBEDs`
+> Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839; place these files in `pickOrthoChains`
 
 **5. Acquire whole-genome pairwise alignments to the reference assembly**
 
@@ -70,7 +70,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR*
 >
-> Download and decompress a tarball of pre-generated `{reference}.{query}.all.chain.gz` files from [zenodo tbd]; place the files in `pickOrthoChains/chains`
+> Download and decompress a tarball of pre-generated `{reference}.{query}.all.chain.gz` files from https://doi.org/10.5281/zenodo.7140839; place the files in `pickOrthoChains/chains`
 
 **6. Map reference gene orthologs to identify orthologous alignment chains**
 
@@ -88,8 +88,8 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR* (if skipping here from step 4)
 > 
-> Download and decompress a tarball of pre-generated `{reference}.{query}.ortho.chains.gz` files from [zenodo tbd]; place the files in `processedInputs/orthoChains`
-> Download and decompress a tarball of pre-generated orthologous gene mapping info from [zenodo tbd]; place the files in `pickOrthoChains`
+> Download and decompress a tarball of pre-generated `{reference}.{query}.ortho.chains.gz` files from https://doi.org/10.5281/zenodo.7140839; place the files in `processedInputs/orthoChains`
+> Download and decompress a tarball of pre-generated orthologous gene mapping info from https://doi.org/10.5281/zenodo.7140839; place the files in `pickOrthoChains`
 
 **8. Generate lookup files for each reference gene**
 
@@ -111,7 +111,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR*
 > 
-> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/DELs`
+> Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839 and place the files in `processedInputs/DELs`
 
 **10. Identify intact alignment (axt) blocks**
 
@@ -121,7 +121,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR*
 > 
-> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/axtBlocks`
+> Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839 and place the files in `processedInputs/axtBlocks`
 > 
 > Then run `scripts/getAxtBlocksIntactIn2TetraSyngnath.sh screenDefinitionParameters`
 
@@ -141,7 +141,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > 
 > *OR*
 > 
-> Download and decompress a tarball of pre-generated files from [zenodo tbd] and place the files in `processedInputs/slidingWindowCons`
+> Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839 and place the files in `processedInputs/slidingWindowCons`
 
 **12. Run the screen**
 
