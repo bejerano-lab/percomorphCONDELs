@@ -89,6 +89,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > *OR* (if skipping here from step 4)
 > 
 > Download and decompress a tarball of pre-generated `{reference}.{query}.ortho.chains.gz` files from https://doi.org/10.5281/zenodo.7140839; place the files in `processedInputs/orthoChains`
+> 
 > Download and decompress a tarball of pre-generated orthologous gene mapping info from https://doi.org/10.5281/zenodo.7140839; place the files in `pickOrthoChains`
 
 **8. Generate lookup files for each reference gene**
