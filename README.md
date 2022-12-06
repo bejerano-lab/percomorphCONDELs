@@ -1,4 +1,4 @@
-# percomorphCONDELs
+# percomorph CONDELs
 
 This repository provides the code for identifying genomic deletions that are associated with pelvic and caudal fin reduction in independent lineages of fish, as described in the following manuscript:
 
