@@ -95,7 +95,7 @@ This repository provides the code for identifying genomic deletions that are ass
 
 **8. Generate lookup files for each reference gene**
 
-> For each canonical reference gene, run `scripts/generateLookupFile.sh {ENSG ID}`
+> For each canonical reference gene, run `scripts/generateLookupFile.sh {ENSG ID}` to generate a file that lists all chains to which the gene has been orthologously mapped.
 > 
 > For example,
 > 
