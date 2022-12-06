@@ -58,6 +58,7 @@ This repository provides the code for identifying genomic deletions that are ass
 > *OR*
 >
 > Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839; place these files in `processedInputs/filterBEDs`
+> 
 > Download and decompress a tarball of pre-generated files from https://doi.org/10.5281/zenodo.7140839; place these files in `pickOrthoChains`
 
 **5. Acquire whole-genome pairwise alignments to the reference assembly**
