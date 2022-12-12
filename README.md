@@ -2,7 +2,7 @@
 
 This repository provides the code for identifying genomic deletions that are associated with pelvic and caudal fin reduction in independent lineages of fish, as described in the following manuscript:
 
-Chen, H.I., Turakhia, Y., Bejerano, G., Kingsley, D.M. 'Whole-genome comparisons identify repeated regulatory changes underlying convergent appendage evolution in diverse fish lineages' Submitted for peer review on 12 Dec 2022.
+Chen, H.I., Turakhia, Y., Bejerano, G., Kingsley, D.M. 'Whole-genome comparisons identify repeated regulatory changes underlying convergent appendage evolution in diverse fish lineages.' Submitted for peer review on 12 Dec 2022.
 
 
 ## System requirements
