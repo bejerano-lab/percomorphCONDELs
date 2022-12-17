@@ -1,4 +1,4 @@
-name: base
+name: percomorphCONDEL
 channels:
   - e3sm
   - anaconda
@@ -149,4 +149,3 @@ dependencies:
     - python-dateutil==2.7.3
     - pytz==2018.4
     - sip==4.19.8
-prefix: /cluster/u/hchen17/miniconda
