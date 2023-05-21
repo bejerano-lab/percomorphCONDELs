@@ -29,26 +29,6 @@ outgroupData$squares <- (outgroupData$num_caudal_rays - outgroupMean)^2
 outgroupNminus1 <- length(outgroupData$species)-1
 outgroupSD <- sqrt(sum(outgroupData$squares)/outgroupNminus1)
 
+# run Welch-modified T Test
 tsum.test(mean.x = outgroupMean, s.x = outgroupSD, n.x=length(outgroupData$species), 
           mean.y = targetMean, s.y = targetSD, n.y = length(targetData$species))
-
-
-pPelvicRateData <- as.rateData(y="num_pelvic_fins", x="split", 
-                               rateMatrix=pRateMatrix, phy=NULL, data=finData, log.y=FALSE)
-groupMeans <- phyloMean(rateData=pPelvicRateData, common.mean = FALSE)
-
-outgroup2Mean <- groupMeans[1,1]
-target2Mean <- sum(groupMeans)
-
-target2Data <- finData[finData$phenotypic_group == "target",]
-target2Data$squares <- (target2Data$num_pelvic_fins - target2Mean)^2
-target2Nminus1 <- length(target2Data$species)-1
-target2SD <- sqrt(sum(target2Data$squares)/target2Nminus1)
-
-outgroup2Data <- finData[finData$phenotypic_group == "outgroup",]
-outgroup2Data$squares <- (outgroup2Data$num_pelvic_fins - outgroup2Mean)^2
-outgroup2Nminus1 <- length(outgroup2Data$species)-1
-outgroup2SD <- sqrt(sum(outgroup2Data$squares)/outgroup2Nminus1)
-
-tsum.test(mean.x = outgroup2Mean, s.x = outgroup2SD, n.x=length(outgroup2Data$species), 
-          mean.y = target2Mean, s.y = target2SD, n.y = length(target2Data$species))
