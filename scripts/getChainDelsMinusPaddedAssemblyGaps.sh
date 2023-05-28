@@ -44,7 +44,7 @@ cp $(readlink -f $0) $out/$query/copyOfRunScript_$(basename $0)_$(date +%Y%m%d_%
 
 slopBed -i $originalGapTrackFile -g $chromSizes -b 100 > ${intermediateDir}/${query}.100bpPaddedGapTrack
 
-python3 $scriptsDir/findDels_no5bpPadding.py $chainFile ${intermediateDir}/$query".delsRelTo."$target".unfiltered.bed"
+python3 $scriptsDir/findDels.py $chainFile ${intermediateDir}/$query".delsRelTo."$target".unfiltered.bed"
 
 subtractBed -a ${intermediateDir}/$query".delsRelTo."$target".unfiltered.bed" -b  ${intermediateDir}/${query}.100bpPaddedGapTrack > ${intermediateDir}/$query".delsRelTo."$target".paddedGapSubtracted.bed"
 
