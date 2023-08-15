@@ -17,7 +17,7 @@ Chen, H.I., Turakhia, Y., Bejerano, G., Kingsley, D.M. 'Whole-genome comparisons
 
 **1. Populate `processedInputs/2bits` with `2bit` files for all genome assemblies**
 
-> Download assembly fasta files from the sources listed in Supplementary File 1, perform repeat masking (if needed), and convert the fasta files to `2bit` format using `faToTwoBit`
+> Download assembly fasta files from the sources listed in Supplementary File 1, perform repeat masking (if needed), and convert the fasta files to `2bit` format using `faToTwoBit`. Rename the fasta sequences for the reference assembly `oryLat04`/`GCF_002234675.1` from GenBank sequence IDs to human-readable chromosome names (i.e. chr1, chr2, ..., chrM) according to the NCBI sequence report for `GCF_002234675.1`.
 >
 > *OR*
 >
