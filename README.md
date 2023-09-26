@@ -2,8 +2,8 @@
 
 This repository provides the code for identifying genomic deletions that are associated with pelvic and caudal fin reduction in independent lineages of fish, as described in the following manuscript:
 
-Chen, H.I., Turakhia, Y., Bejerano, G., Kingsley, D.M. 'Whole-genome comparisons identify repeated regulatory changes underlying convergent appendage evolution in diverse fish lineages.' https://doi.org/10.1101/2023.01.30.526059
 
+Chen, Heidi I, Yatish Turakhia, Gill Bejerano, and David M Kingsley. “Whole-Genome Comparisons Identify Repeated Regulatory Changes Underlying Convergent Appendage Evolution in Diverse Fish Lineages.” *Molecular Biology and Evolution* 40, no. 9 (September 1, 2023): msad188. https://doi.org/10.1093/molbev/msad188.
 
 ## System requirements
 - Install UCSC Genome Browser utils from http://hgdownload.soe.ucsc.edu/admin/exe/ to be available in your $PATH
